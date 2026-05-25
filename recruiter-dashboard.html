@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruiter Dashboard | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo-wrap">
+      <img src="images/stacklylogo.webp" alt="Stackly" class="loader-logo-img" width="80" height="80">
+    </div>
+    <span class="loader-text">Loading</span>
+  </div>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
+      <a href="index.html" class="logo">
+        <img src="images/stacklylogo.webp" alt="Stackly" class="logo-img" width="280" height="52" loading="eager">
+      </a>
+      <p class="sidebar-role-badge"><i class="ph ph-buildings"></i> Recruiter</p>
+      <nav class="sidebar-nav">
+        <a href="#" class="active" data-panel="overview"><i class="ph ph-chart-line-up"></i> Overview</a>
+        <a href="#" data-panel="jobs"><i class="ph ph-briefcase"></i> Posted Jobs</a>
+        <a href="#" data-panel="applicants"><i class="ph ph-users"></i> Applicants</a>
+        <a href="#" data-panel="company"><i class="ph ph-buildings"></i> Company</a>
+        <a href="#" id="logout-btn"><i class="ph ph-sign-out"></i> Log Out</a>
+        <a href="index.html"><i class="ph ph-house"></i> Back to Site</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar"><i class="ph ph-list"></i></button>
+          <div>
+            <h1 id="panel-title">Recruiter Overview</h1>
+            <p style="color:var(--muted);margin:0"><span id="user-company">Company</span> · <span id="user-name">Recruiter</span></p>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:center">
+          <a href="jobs.html" class="btn btn-glow" style="padding:0.6rem 1.25rem;font-size:0.875rem">+ Post Job</a>
+          <button id="theme-toggle" class="theme-toggle"><i class="ph ph-moon"></i></button>
+        </div>
+      </div>
+
+      <div class="dashboard-panel active" id="panel-overview">
+        <div class="dashboard-stats">
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient">8</div>
+            <div class="stat-label">Active Listings</div>
+          </div>
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient">124</div>
+            <div class="stat-label">Total Applicants</div>
+          </div>
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient">18</div>
+            <div class="stat-label">New This Week</div>
+          </div>
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient">6</div>
+            <div class="stat-label">Interviews Scheduled</div>
+          </div>
+        </div>
+        <div class="chart-card glass">
+          <h3 style="margin-bottom:1.5rem">Applications Received</h3>
+          <div class="chart-bars" id="chart-bars">
+            <div class="chart-bar" data-height="40" style="height:0"><span>Jan</span></div>
+            <div class="chart-bar" data-height="55" style="height:0"><span>Feb</span></div>
+            <div class="chart-bar" data-height="70" style="height:0"><span>Mar</span></div>
+            <div class="chart-bar" data-height="65" style="height:0"><span>Apr</span></div>
+            <div class="chart-bar" data-height="90" style="height:0"><span>May</span></div>
+            <div class="chart-bar" data-height="85" style="height:0"><span>Jun</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-panel" id="panel-jobs">
+        <div class="glass" style="overflow:hidden">
+          <div class="dash-job-item">
+            <img src="images/job-feature-1.webp" alt="" loading="lazy" width="48" height="48" style="border-radius:8px;object-fit:cover">
+            <div style="flex:1"><strong>Senior Frontend Engineer</strong><br><span style="color:var(--muted);font-size:0.875rem">42 applicants · Posted 5 days ago</span></div>
+            <span style="font-size:0.8rem;padding:0.35rem 0.75rem;background:rgba(16,185,129,0.15);color:var(--success);border-radius:999px">Active</span>
+          </div>
+          <div class="dash-job-item">
+            <img src="images/job-feature-3.webp" alt="" loading="lazy" width="48" height="48" style="border-radius:8px;object-fit:cover">
+            <div style="flex:1"><strong>Data Scientist</strong><br><span style="color:var(--muted);font-size:0.875rem">28 applicants · Posted 2 weeks ago</span></div>
+            <span style="font-size:0.8rem;padding:0.35rem 0.75rem;background:rgba(16,185,129,0.15);color:var(--success);border-radius:999px">Active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-panel" id="panel-applicants">
+        <div class="glass" style="overflow:hidden">
+          <div class="dash-job-item">
+            <img src="images/avatar-1.webp" alt="" loading="lazy" width="48" height="48" style="border-radius:50%;object-fit:cover">
+            <div style="flex:1"><strong>Sarah Chen</strong><br><span style="color:var(--muted);font-size:0.875rem">Applied for Senior Frontend Engineer</span></div>
+            <button class="btn btn-outline" style="padding:0.5rem 1rem">Review</button>
+          </div>
+          <div class="dash-job-item">
+            <img src="images/avatar-2.webp" alt="" loading="lazy" width="48" height="48" style="border-radius:50%;object-fit:cover">
+            <div style="flex:1"><strong>Marcus Webb</strong><br><span style="color:var(--muted);font-size:0.875rem">Applied for Data Scientist</span></div>
+            <button class="btn btn-outline" style="padding:0.5rem 1rem">Review</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-panel" id="panel-company">
+        <div class="glass" style="padding:2rem">
+          <form class="profile-form-grid">
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Company Name</label>
+              <input type="text" class="input-field" id="profile-company">
+            </div>
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Recruiter Name</label>
+              <input type="text" class="input-field" id="profile-recruiter-name">
+            </div>
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Work Email</label>
+              <input type="email" class="input-field" id="profile-email">
+            </div>
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Industry</label>
+              <input type="text" class="input-field" placeholder="e.g. Technology">
+            </div>
+            <button type="button" class="btn btn-primary" id="save-profile" style="grid-column:1/-1">Save Company Profile</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/recruiter-dashboard.js"></script>
+</body>
+</html>

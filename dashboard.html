@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo-wrap">
+      <img src="images/stacklylogo.webp" alt="Stackly" class="loader-logo-img" width="80" height="80">
+    </div>
+    <span class="loader-text">Loading</span>
+  </div>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
+      <a href="index.html" class="logo">
+        <img src="images/stacklylogo.webp" alt="Stackly" class="logo-img" width="280" height="52" loading="eager">
+      </a>
+      <nav class="sidebar-nav">
+        <a href="#" class="active" data-panel="overview"><i class="ph ph-chart-line-up"></i> Overview</a>
+        <a href="#" data-panel="applied"><i class="ph ph-paper-plane-tilt"></i> Applied Jobs</a>
+        <a href="#" data-panel="saved"><i class="ph ph-bookmark-simple"></i> Saved Jobs</a>
+        <a href="#" data-panel="profile"><i class="ph ph-user-circle"></i> Profile</a>
+        <a href="#" id="logout-btn"><i class="ph ph-sign-out"></i> Log Out</a>
+        <a href="index.html"><i class="ph ph-house"></i> Back to Site</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar"><i class="ph ph-list"></i></button>
+          <div>
+            <h1 id="panel-title">Overview</h1>
+            <p style="color:var(--muted);margin:0">Welcome back, <span id="user-name">Professional</span></p>
+          </div>
+        </div>
+        <button id="theme-toggle" class="theme-toggle"><i class="ph ph-moon"></i></button>
+      </div>
+
+      <div class="dashboard-panel active" id="panel-overview">
+        <div class="dashboard-stats reveal fade-up">
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient" id="stat-applied">12</div>
+            <div class="stat-label">Applications Sent</div>
+          </div>
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient" id="stat-saved">0</div>
+            <div class="stat-label">Saved Jobs</div>
+          </div>
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient">4</div>
+            <div class="stat-label">Interviews</div>
+          </div>
+          <div class="dash-stat-card glass">
+            <div class="stat-value text-gradient">89%</div>
+            <div class="stat-label">Profile Strength</div>
+          </div>
+        </div>
+        <div class="chart-card glass reveal fade-up">
+          <h3 style="margin-bottom:1.5rem">Applications This Month</h3>
+          <div class="chart-bars" id="chart-bars">
+            <div class="chart-bar" data-height="60" style="height:0"><span>Jan</span></div>
+            <div class="chart-bar" data-height="45" style="height:0"><span>Feb</span></div>
+            <div class="chart-bar" data-height="80" style="height:0"><span>Mar</span></div>
+            <div class="chart-bar" data-height="55" style="height:0"><span>Apr</span></div>
+            <div class="chart-bar" data-height="90" style="height:0"><span>May</span></div>
+            <div class="chart-bar" data-height="70" style="height:0"><span>Jun</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-panel" id="panel-applied">
+        <div class="glass" style="overflow:hidden">
+          <div class="dash-job-item">
+            <img src="images/job-list-1.webp" alt="" loading="lazy" width="48" height="48" style="border-radius:8px;object-fit:cover">
+            <div style="flex:1"><strong>Senior Frontend Engineer</strong><br><span style="color:var(--muted);font-size:0.875rem">TechFlow · Applied 2 days ago</span></div>
+            <span style="font-size:0.8rem;padding:0.35rem 0.75rem;background:rgba(16,185,129,0.15);color:var(--success);border-radius:999px">Reviewing</span>
+          </div>
+          <div class="dash-job-item">
+            <img src="images/job-list-2.webp" alt="" loading="lazy" width="48" height="48" style="border-radius:8px;object-fit:cover">
+            <div style="flex:1"><strong>Product Designer</strong><br><span style="color:var(--muted);font-size:0.875rem">DesignHub · Applied 1 week ago</span></div>
+            <span style="font-size:0.8rem;padding:0.35rem 0.75rem;background:rgba(37,99,235,0.15);color:var(--primary);border-radius:999px">Shortlisted</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-panel" id="panel-saved">
+        <div class="glass" id="saved-jobs-list" style="padding:1rem">
+          <p style="color:var(--muted);text-align:center;padding:2rem" id="saved-empty">No saved jobs yet. Browse <a href="jobs.html">jobs</a> to save favorites.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-panel" id="panel-profile">
+        <div class="glass" style="padding:2rem">
+          <form id="profile-form" class="profile-form-grid">
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Full Name</label>
+              <input type="text" class="input-field" value="Alex Morgan" id="profile-name">
+            </div>
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Email</label>
+              <input type="email" class="input-field" value="alex@example.com">
+            </div>
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Title</label>
+              <input type="text" class="input-field" value="Senior Developer">
+            </div>
+            <div class="input-group">
+              <label style="font-weight:600;font-size:0.875rem">Location</label>
+              <input type="text" class="input-field" value="San Francisco, CA">
+            </div>
+            <div class="input-group" style="grid-column:1/-1">
+              <label style="font-weight:600;font-size:0.875rem">Bio</label>
+              <textarea class="input-field" rows="4" style="resize:vertical">Passionate full-stack developer with 8+ years building scalable web applications.</textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="save-profile" style="grid-column:1/-1">Save Profile</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

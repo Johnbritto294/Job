@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="auth-body">
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo-wrap">
+      <img src="images/stacklylogo.webp" alt="Stackly" class="loader-logo-img" width="80" height="80">
+    </div>
+    <span class="loader-text">Loading</span>
+  </div>
+
+  <header id="header" class="header scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/stacklylogo.webp" alt="Stackly" class="logo-img" width="280" height="56" loading="eager">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="jobs.html" class="nav-link">Jobs</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><i class="ph ph-moon"></i></button>
+        <a href="login.html" class="btn btn-outline" style="padding:0.6rem 1.5rem">Log In</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-nav" class="mobile-nav">
+    <button id="close-menu-btn" class="close-btn" aria-label="Close"><i class="ph ph-x"></i></button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Log In</a></li>
+    </ul>
+  </div>
+
+  <main class="auth-page">
+    <div class="auth-bg-image" aria-hidden="true">
+      <img src="images/step-bg-3.webp" alt="" loading="eager" width="640" height="360">
+    </div>
+    <div class="auth-bg-overlay"></div>
+
+    <div class="auth-layout container">
+      <aside class="auth-side glass">
+        <span class="section-badge">Get started</span>
+        <h2>Join <span class="text-gradient">Stackly</span></h2>
+        <p class="auth-side-text">Create a free account tailored to how you use the platform.</p>
+        <ul class="auth-role-benefits" id="signup-role-benefits">
+          <li><i class="ph ph-check-circle"></i> Browse & apply to jobs</li>
+          <li><i class="ph ph-check-circle"></i> Save jobs & track applications</li>
+          <li><i class="ph ph-check-circle"></i> Manage your profile</li>
+        </ul>
+      </aside>
+
+      <div class="auth-card glass">
+        <h1>Create Account</h1>
+        <p class="auth-sub">I am joining as a</p>
+
+        <div class="role-selector" id="role-selector" role="tablist">
+          <button type="button" class="role-option active" data-role="seeker" role="tab" aria-selected="true">
+            <i class="ph ph-user"></i>
+            <strong>Job Seeker</strong>
+            <span>Find jobs</span>
+          </button>
+          <button type="button" class="role-option" data-role="recruiter" role="tab" aria-selected="false">
+            <i class="ph ph-buildings"></i>
+            <strong>Recruiter</strong>
+            <span>Hire talent</span>
+          </button>
+        </div>
+
+        <form id="signup-form" novalidate>
+          <!-- Recruiter-only -->
+          <div class="input-group role-field role-field-recruiter" hidden>
+            <label for="signup-company">Company name</label>
+            <input type="text" id="signup-company" class="input-field" placeholder="Your company">
+            <span class="field-error" id="signup-company-error">Company name is required</span>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-name" id="signup-name-label">Full name</label>
+            <input type="text" id="signup-name" class="input-field" placeholder="Full name" required autocomplete="name">
+            <span class="field-error" id="signup-name-error">Name is required</span>
+          </div>
+          <div class="input-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" class="input-field" placeholder="you@email.com" required autocomplete="email">
+            <span class="field-error" id="signup-email-error">Please enter a valid email</span>
+          </div>
+          <div class="input-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" class="input-field" placeholder="Min. 8 characters" required minlength="8" autocomplete="new-password">
+            <span class="field-error" id="signup-password-error">Password must be at least 8 characters</span>
+          </div>
+          <div class="input-group">
+            <label for="signup-confirm">Confirm password</label>
+            <input type="password" id="signup-confirm" class="input-field" placeholder="Repeat password" required autocomplete="new-password">
+            <span class="field-error" id="signup-confirm-error">Passwords do not match</span>
+          </div>
+          <button type="submit" class="btn btn-glow btn-auth-submit">
+            <span class="btn-text">Create Job Seeker Account</span>
+          </button>
+        </form>
+
+        <p class="auth-switch">
+          Already have an account?
+          <a href="login.html" id="login-link-role">Log in as Job Seeker</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
